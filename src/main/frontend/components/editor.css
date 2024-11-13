@@ -1,0 +1,100 @@
+#audio-record-toolbar {
+  position: fixed;
+  background-color: var(--ls-secondary-background-color);
+  width: 90px;
+  justify-content: left;
+  left: 5px;
+  transition: none;
+  z-index: 9999;
+  padding: 5px 5px 5px 8px;
+  border-radius: 5px;
+}
+
+.editor-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.editor-inner {
+  position: relative;
+  display: flex;
+
+  textarea {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    resize: none;
+    box-shadow: none;
+  }
+}
+
+.absolute-modal {
+  overflow: auto;
+  background: var(--ls-primary-background-color);
+
+  &.is-overflow-vw-x {
+    transform: translateX(calc(-100% + 1rem));
+  }
+
+  &.is-overflow-vh-y {
+    transform: translateY(calc(-100% - 2rem));
+  }
+
+  &[data-modal-name] {
+    @apply bg-popover border overflow-x-hidden overflow-y-auto rounded-lg py-1;
+  }
+
+  &[data-modal-name="commands"],
+  &[data-modal-name="select-code-block-mode"] {
+    @screen sm {
+      width: 380px !important;
+      max-width: 90vw !important;
+    }
+  }
+
+  &[data-modal-name="date-picker"] {
+    @apply py-0;
+
+    .rc-datepicker {
+      @apply my-0;
+    }
+  }
+}
+
+.is-mobile {
+  .absolute-modal {
+    &.is-overflow-vw-x {
+      transform: translateX(-1%);
+    }
+  }
+}
+
+.non-block-editor textarea,
+pre {
+  display: block;
+  padding: 0.5rem;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+}
+
+.non-block-editor textarea {
+  background: #f6f8fa;
+  background: var(--ls-secondary-background-color);
+}
+
+/* Fix autocomplete preview  */
+.preview-trigger-wrapper > [data-tooltipped] {
+  display: block !important;
+}
+
+#time-repeater {
+  min-width: 300px;
+
+  @screen sm {
+    width: 135px;
+  }
+}
+
+
+
